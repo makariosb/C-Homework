@@ -1,0 +1,2 @@
+Spellcheck with dictionary
+Printing each unique word in histogram.
