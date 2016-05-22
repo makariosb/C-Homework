@@ -13,7 +13,7 @@ typedef struct gate{
 	int (*function)();
 	struct gate *in1;
 	struct gate *in2;
-}Gate;
+}Gate, *Gateptr;
 
 
 int OR(int a,int b){
