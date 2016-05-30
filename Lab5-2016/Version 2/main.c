@@ -18,13 +18,13 @@
 */
 
 
-int or(int,int);
-int and(int,int);
-int not(int);
-int nand(int,int);
-int nor(int,int);
-int xor(int,int);
-int xnor(int,int);
+int OR(int,int);
+int AND(int,int);
+int NOT(int);
+int NAND(int,int);
+int NOR(int,int);
+int XOR(int,int);
+int XNOR(int,int);
 int getinput(void);
 typedef struct gate{
 	int (*function)();
@@ -41,10 +41,10 @@ int main() {
 	Gate in3={getinput,NULL,NULL};
 	Gate in4={getinput,NULL,NULL};
 	Gate in5={getinput,NULL,NULL};
-	Gate g1={and,&in1,&in2};
-	Gate g2={xor,&in3,&in4};
-	Gate g3={nand,&g1,&g2};
-	Gate g4={or,&g3,&in5};
+	Gate g1={AND,&in1,&in2};
+	Gate g2={XOR,&in3,&in4};
+	Gate g3={NAND,&g1,&g2};
+	Gate g4={OR,&g3,&in5};
 	printf("Final output: %d\n",nextgate(g4));
 	
 	return 0;
@@ -61,7 +61,7 @@ int getinput(void){
 		return temp;
 }
 
-int or(int a,int b){
+int OR(int a,int b){
 	if (a==0 && b==0){
 		return 0;
 	}
@@ -70,7 +70,7 @@ int or(int a,int b){
 	}	
 }
 
-int and(int a,int b){
+int AND(int a,int b){
 	if (a==1 && b==1){
 		return 1;
 	}
@@ -79,30 +79,30 @@ int and(int a,int b){
 	}
 }
 
-int not(int a){
+int NOT(int a){
 	if (a==0)
 		return 1;
 	else
 		return 0;
 }
 
-int nand(int a,int b){
-	return (not(and(a,b)));
+int NAND(int a,int b){
+	return (NOT(AND(a,b)));
 }
 
-int nor(int a,int b){
-	return (not(or(a,b)));
+int NOR(int a,int b){
+	return (NOT(OR(a,b)));
 }
 
-int xor(int a,int b){
+int XOR(int a,int b){
 	if (a==b)
 		return 0;
 	else
 		return 1;
 }
 
-int xnor(int a,int b){
-	return not(xor(a,b));
+int XNOR(int a,int b){
+	return NOT(XOR(a,b));
 }
 
 int nextgate(Gate pyli){

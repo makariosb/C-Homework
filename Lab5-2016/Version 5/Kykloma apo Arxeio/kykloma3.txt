@@ -1,0 +1,6 @@
+4
+1
+3
+OR I1 I2
+AND I3 I4
+NAND G1 G2
